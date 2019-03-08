@@ -17,13 +17,15 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls import url, include
 from django.views.static import serve
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^\Z', include('personal.urls')),
     url(r'^blog/', include('blog.urls')),
-] 
+]  
 
 if settings.DEBUG:
     urlpatterns += [
