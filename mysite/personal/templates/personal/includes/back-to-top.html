@@ -1,0 +1,127 @@
+<!-- Return to Top -->
+<a href="javascript:" id="return-to-top"><i class="icon-chevron-up"></i></a>
+
+
+<!-- ICON NEEDS FONT AWESOME FOR CHEVRON UP ICON -->
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+  
+<!-- Test the scroll -->
+
+<style>
+
+	#return-to-top-hover {
+		position: fixed;
+		bottom: 10px;
+		right: 10px;
+		background: rgb(212,175,55);
+		width: 50px;
+		height: 50px;
+		display: block;
+		text-decoration: none;
+		-webkit-border-radius: 35px;
+		-moz-border-radius: 35px;
+		border-radius: 35px;
+		display: none;
+		-webkit-transition: all 0.3s linear;
+		-moz-transition: all 0.3s ease;
+		-ms-transition: all 0.3s ease;
+		-o-transition: all 0.3s ease;
+		transition: all 0.3s ease;
+		z-index: 6000;
+	}
+	#return-to-top-hover i {
+		color: #333333;
+		margin: 0;
+		position: relative;
+		left: 16px;
+		top: 13px;
+		font-size: 19px;
+		-webkit-transition: all 0.3s ease;
+		-moz-transition: all 0.3s ease;
+		-ms-transition: all 0.3s ease;
+		-o-transition: all 0.3s ease;
+		transition: all 0.3s ease;
+		z-index: 6000;
+	}
+	#return-to-top-hover:hover {
+		background: rgb(255, 214, 0);
+	}
+	#return-to-top-hover:hover i {
+		color: #333333;
+		top: 5px;
+	}
+
+
+	#return-to-top {
+		position: fixed;
+		bottom: 10px;
+		right: 10px;
+		background: rgb(82, 142, 193);
+		width: 50px;
+		height: 50px;
+		display: block;
+		text-decoration: none;
+		-webkit-border-radius: 35px;
+		-moz-border-radius: 35px;
+		border-radius: 35px;
+		display: none;
+		-webkit-transition: all 0.3s linear;
+		-moz-transition: all 0.3s ease;
+		-ms-transition: all 0.3s ease;
+		-o-transition: all 0.3s ease;
+		transition: all 0.3s ease;
+		z-index: 6000;
+	}
+	#return-to-top i {
+		color: #fff;
+		margin: 0;
+		position: relative;
+		left: 16px;
+		top: 13px;
+		font-size: 19px;
+		-webkit-transition: all 0.3s ease;
+		-moz-transition: all 0.3s ease;
+		-ms-transition: all 0.3s ease;
+		-o-transition: all 0.3s ease;
+		transition: all 0.3s ease;
+		z-index: 6000;
+	}
+
+
+</style>
+
+<script>
+
+function hasTouch() {
+    return 'ontouchstart' in document.documentElement
+           || navigator.maxTouchPoints > 0
+           || navigator.msMaxTouchPoints > 0;
+}
+
+var idName = '#return-to-top';
+
+if( !hasTouch()){
+	$('#return-to-top').attr('id','return-to-top-hover');
+	idName = '#return-to-top-hover';
+
+}
+// ===== Scroll to Top ==== 
+$(window).scroll(function() {
+    if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
+        $(idName).fadeIn(200);    // Fade in the arrow
+    } else {
+        $(idName).fadeOut(200);   // Else fade out the arrow
+    }
+});
+$(idName).click(function() {      // When arrow is clicked
+    $('body,html').animate({
+        scrollTop : 0                       // Scroll to top of body
+    }, 500);
+
+});
+
+
+
+
+</script>

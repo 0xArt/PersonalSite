@@ -1,0 +1,86 @@
+{% extends "personal/header.html" %}
+{% block content %}
+
+<script>
+	document.title = "Portfolio |  Artin Isagholian"
+</script>
+
+<style>
+	.badge {
+		padding: 1px 9px 2px;
+		font-size: 14px;
+		font-weight: bold;
+		white-space: nowrap;
+		color: #333333;
+		background-color: rgb(212,175,55)!important;
+		-webkit-border-radius: 9px;
+		-moz-border-radius: 9px;
+		border-radius: 9px;
+	}
+	.projectName{
+		color: rgb(212,175,55)!important;
+	}
+</style>
+
+
+{% if analog_projects.count > 0 %}
+
+	<center><h2><font color = "#333333">Analog</font></h2></center>
+	<br>
+
+	{% for project in analog_projects %}
+		<hr>
+		<a class="projectName" href ={{project.blog_link}}><h3>{{project.title}}</h3></a>
+		<p>		
+			{% for tag in project.tags_list %}
+				<span class="badge badge-pill badge-primary">{{tag}}</span>
+			{% endfor %}
+		</p>
+		<div>
+			{{project.summary|safe}}
+		</div>
+		<img src="/media/{{project.cover_image}}" class="img-fluid" >
+
+		<p>
+			<br>
+			<a href = {{project.blog_link}} class="btn"><strong>More Info</strong></a>
+		</p>
+		<hr>
+		<br>
+	{% endfor %}
+
+{% endif %}
+
+
+
+{% if digital_projects.count > 0 %}
+
+	<center><h2><font color = "#333333">Digital</font></h2></center>
+	<br>
+
+	{% for project in digital_projects %}
+		<hr>
+		<a class="projectName" href = {{project.blog_link}}><h3>{{project.title}}</h3></a>
+		<p>		
+			{% for tag in project.tags_list %}
+				<span class="badge badge-pill badge-primary">{{tag}}</span>
+			{% endfor %}
+		</p>
+		<div>
+			{{project.summary|safe}}
+		</div>
+		<img src="/media/{{project.cover_image}}" class="img-fluid" >
+
+		<p>
+			<br>
+			<a href = {{project.blog_link}} class="btn"><strong>More Info</strong></a>
+		</p>
+		<hr>
+		<br>
+	{% endfor %}
+
+{% endif %}
+
+
+{% endblock %}
+

@@ -13,24 +13,9 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.conf import settings
 from django.conf.urls import url, include
-from django.views.static import serve
-from django.conf.urls.static import static
-
+from . import views
 
 urlpatterns = [
-    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
-    url(r'^admin/', admin.site.urls),
-    url(r'^\Z', include('personal.urls')),
-    url(r'^blog/', include('blog.urls')),
-	url(r'^portfolio/', include('portfolio.urls')),
-]  
-
-if settings.DEBUG:
-    urlpatterns += [
-        url(r'^media/(?P<path>.*)$', serve, {
-            'document_root': settings.MEDIA_ROOT
-        }),
-    ]
+    url(r'^', views.portfolio_index, name='portfolio/portfolio.html') #portfolio
+]
